@@ -1,19 +1,49 @@
 package Classes;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Grades {
+    private static Grades instance = new Grades();
     private String rawText; //copy-pasted text from the SSC grades summary page
     private String degree; //short code for degree to distinguish within the copy-pasted raw text i.e. BSC, BA, etc.
-    private HashMap courseInfo; //key is course name, value is grade. Will be set to -1 if grade is not available.
+    private HashMap courseInfo; //key is course name, value is grade.
+    private java.util.concurrent.Semaphore gradesHandled = new java.util.concurrent.Semaphore(0); //semaphore to wait until grades handled
+    private ArrayList<Course> currentCourses;
 
-    //constructor requires copy-pasted text from SSC and short code for user's degree
-    public Grades(String rawText, String degree){
-        this.rawText = rawText;
-        courseInfo = new HashMap<Course, Grade>();
-        this.degree = degree; //TODO: user must input their degree in the program!!!!
+    //uses Singleton design pattern to only get one instance 
+    private Grades(){  
     }
 
+    //accessor for single instance of Singleton
+    public static Grades getInstance(){
+        return instance;    
+    }
+    
+    //sets rawText and degree to parameters, initializes courseInfo and currentCourses
+    public void setFields(String rawText, String degree){
+        this.rawText = rawText;
+        this.degree = degree; 
+        courseInfo = new HashMap<Course, Grade>();
+        currentCourses = new ArrayList<Course>();
+    }
+    
+    //setter for degree field
+    public void setDegree(String degree){
+        this.degree = degree;
+    }
+    
+    //accessor for currentCourses
+    public ArrayList<Course> getCurrent(){
+        return currentCourses;
+    }
+    
+    //accessor for courseInfo
+    public HashMap<Course, Grade> getCourses(){
+        return courseInfo;
+    }
+
+    //REQUIRES: currentCourses has already been handled, and its grades/credits have been updated
     //returns the cumulative average of all courses, uses double to preserve decimal accuracy
     public double getCumulativeAverage(){
         double totalMarks = 0.0;
@@ -21,30 +51,11 @@ public class Grades {
         Grade currentGrade;
         for(Object course : courseInfo.keySet()){
             currentGrade = (Grade) courseInfo.get(course);
-            //if marks are available, add, otherwise don't do anything with the mark
-            if(((Course) course).isMarksAvailable()){
-                totalMarks += currentGrade.getGrade() * currentGrade.getCredits();
-            }
-            //if marks aren't available, get from input
-            else{
-                totalMarks += getGradeFromInput(currentGrade) * currentGrade.getCredits();
-                    }
+            //all marks and credits are known at this point
+            totalMarks += currentGrade.getGrade() * currentGrade.getCredits();
             totalCredits += currentGrade.getCredits();
         }
         return totalMarks/totalCredits;
-    }
-
-//    public double getAverage(   )
-
-    //returns all courses in the form NAME NUMBER SECTION,each on their own line
-    public String getCourses(){
-        String courseList = "";
-        for(Object course : courseInfo.keySet()){
-             courseList += ((Course)course).getClass() + " "
-                     + ((Course)course).getCourseNumber() + " "
-                     +((Course)course).getSection() + ", \n";
-        }
-        return courseList;
     }
 
     //REQUIRES: raw text from constructor
@@ -56,10 +67,9 @@ public class Grades {
         Grade currentGrade;
         for(int i = 0; i < elements.length; i++){
             //CASE 1: class mark currently unavailable
-            if(elements[+5].equals(degree)){ //TODO: implement a box that selects BSC, BA, etc. so do not use ignore case
+            if(elements[i+5].equals(degree)){ //TODO: implement a box that selects BSC, BA, etc. so do not use ignore case
                 currentClass = new Course(elements[i], elements[i+1], elements[i+2], false);
-                currentGrade = new Grade(getUnknownCredits(currentClass), -1); //dummy grade, unavailable
-                courseInfo.put(currentClass, currentGrade);
+                currentCourses.add(currentClass);         
                 i += 7; //NOTE: 1 less than actual because of i++
             }
             //CASE 2: class mark is available
@@ -70,21 +80,24 @@ public class Grades {
                 i+= 10; //NOTE: 1 less than actual because of i++
             }
         }
+        //update grades of current courses in GUI
+        //TODO: main needs to wait for a bit until this point is reached
+       waitUntilDone();
     }
-
-    //TODO 
-    //private helper for when marks are unavailable
-    //gets credits for current courses from user input
-    private double getUnknownCredits(Course currentClass) {
-           
-        return 0;
+    
+      //helpers for handling from UI input
+    public void setDone(){
+        gradesHandled.release();
     }
-
-    //TODO 
-    private double getGradeFromInput(Grade currentGrade) {
-        //todo: get grades from jFrame input
-        return 0;
+    public void waitUntilDone(){
+        try {
+            gradesHandled.acquire();
+        } catch (InterruptedException ex) {
+//            Logger.getLogger(Grades.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
+
+   
 
  
