@@ -15,31 +15,35 @@ import static org.junit.Assert.*;
  */
 public class GradesTest {
     
-    private Grades testKnown;
-    private Grades testUnknown;
-    private String knownCourses;
-    private String unknownCourses;
+    private Grades testCourse;
+    private String courses;
     
     public GradesTest() {
     }
    
     @Before
     public void setUp() {
-        knownCourses = "CPSC 221 202 86 A 2017W 2 BSC 2 4.0 78 CPSC 213 204 84 A- 2017W 2 BSC 2 4.0 73 ";
-        unknownCourses = "CPSC 304 911 2018S 1 BSC 2 0 CPSC 322 911 2018S 1 BSC 2 0 CPSC 313 9W1 2018S 2 BSC 2 0 CPSC 320 9W1 2018S 2 BSC 2 0";
-        testKnown = Grades.getInstance();
-        testKnown.setFields(knownCourses, "bSc");
-//        testUnknown = Grades.getInstance();
-//        testUnknown.setFields(unknownCourses, "BsC");
+        courses = "CPSC 304 911 2018S 1 BSC 2 0 CPSC 322 911 2019S "
+                + "1 BSC 2 0 CPSC 313 9W1 2020S 2 BSC 2 0 CPSC 320 9W1 "
+                + "2021S 2 BSC 2 0 CPSC 221 202 86 A 2017W 2 BSC 2 4.0 78 CPSC"
+                + " 213 204 84 A- 2017W 2 BSC 2 4.0 74";
+        testCourse = Grades.getInstance();
+        testCourse.setFields(courses, "BSC");
     }
 
     /**
      * Test of getCumulativeAverage method, of class Grades.
      */
     @Test
-    public void testCumulativeAverageKnown(){
-        testKnown.parseCoursesAndGrades();
-        assertTrue((double)((86*4+84*4)/(4+4)) == testKnown.getCumulativeAverage());
+    public void testCumulativeAverage(){
+        testCourse.parseCoursesAndGrades();
+        assertTrue((double)((86*4+84*4+4*(50*3))/(4*3+4+4)) == testCourse.getCumulativeAverage());
+    }
+    
+     @Test
+    public void testGetCurrent(){
+        testCourse.parseCoursesAndGrades();
+        testCourse.getCurrent();
     }
 
 //    /**

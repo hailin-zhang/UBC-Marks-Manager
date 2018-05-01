@@ -4,13 +4,11 @@ public class Course {
     private String courseName;
     private String courseNumber;
     private String section;
-    boolean marksAvailable;
 
-    public Course(String name, String number, String section, boolean marksAvailable){
+    public Course(String name, String number, String section){
         courseName = name;
         courseNumber = number;
         this.section = section;
-        this.marksAvailable = marksAvailable;
     }
 
     public String getCourseName() {
@@ -23,14 +21,6 @@ public class Course {
 
     public String getSection() {
         return section;
-    }
-
-    public boolean isMarksAvailable() {
-        return marksAvailable;
-    }
-
-    public void setMarksAvailable(boolean marksAvailable){
-        this.marksAvailable = marksAvailable;
     }
 
     public void setCourseName(String courseName) {

@@ -8,7 +8,7 @@ public class Grades {
     private String rawText; //copy-pasted text from the SSC grades summary page
     private String degree; //short code for degree to distinguish within the copy-pasted raw text i.e. BSC, BA, etc.
     private HashMap courseInfo; //key is course name, value is grade.
-    private java.util.concurrent.Semaphore gradesHandled = new java.util.concurrent.Semaphore(0); //semaphore to wait until grades handled
+//    private java.util.concurrent.Semaphore gradesHandled = new java.util.concurrent.Semaphore(1); //semaphore to wait until grades handled
     private ArrayList<Course> currentCourses;
 
     //uses Singleton design pattern to only get one instance 
@@ -28,13 +28,9 @@ public class Grades {
         currentCourses = new ArrayList<Course>();
     }
     
-    //setter for degree field
-    public void setDegree(String degree){
-        this.degree = degree;
-    }
-    
     //accessor for currentCourses
     public ArrayList<Course> getCurrent(){
+        String[] courseNames = new String[currentCourses.size()];
         return currentCourses;
     }
     
@@ -42,10 +38,17 @@ public class Grades {
     public HashMap<Course, Grade> getCourses(){
         return courseInfo;
     }
+    
+    //puts course into hash map
+    public void putCourse(Course course, Grade grade){
+        courseInfo.put(course, grade);
+    }
 
     //REQUIRES: currentCourses has already been handled, and its grades/credits have been updated
     //returns the cumulative average of all courses, uses double to preserve decimal accuracy
     public double getCumulativeAverage(){
+       //update grades of current courses in GUI
+//       waitUntilDone();
         double totalMarks = 0.0;
         double totalCredits = 0.0;
         Grade currentGrade;
@@ -67,35 +70,34 @@ public class Grades {
         Grade currentGrade;
         for(int i = 0; i < elements.length; i++){
             //CASE 1: class mark currently unavailable
-            if(elements[i+5].equals(degree)){ //TODO: implement a box that selects BSC, BA, etc. so do not use ignore case
-                currentClass = new Course(elements[i], elements[i+1], elements[i+2], false);
-                currentCourses.add(currentClass);         
+            if(elements[i+5].equals(degree)){
+                currentClass = new Course(elements[i], elements[i+1], elements[i+2]);
+                currentCourses.add(currentClass);   
+                currentGrade = new Grade (3, 50); //DEFAULT: 50% with 3 credits.
+                courseInfo.put(currentClass, currentGrade);
                 i += 7; //NOTE: 1 less than actual because of i++
             }
             //CASE 2: class mark is available
             else{
-                currentClass = new Course(elements[i], elements[i+1], elements[i+2], true);
+                currentClass = new Course(elements[i], elements[i+1], elements[i+2]);
                 currentGrade = new Grade (Double.parseDouble(elements[i+9]),Double.parseDouble(elements[i+3]));
                 courseInfo.put(currentClass, currentGrade);
                 i+= 10; //NOTE: 1 less than actual because of i++
             }
         }
-        //update grades of current courses in GUI
-        //TODO: main needs to wait for a bit until this point is reached
-       waitUntilDone();
     }
     
-      //helpers for handling from UI input
-    public void setDone(){
-        gradesHandled.release();
-    }
-    public void waitUntilDone(){
-        try {
-            gradesHandled.acquire();
-        } catch (InterruptedException ex) {
-//            Logger.getLogger(Grades.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//      //helpers for handling from UI input
+//    public void setDone(){
+//        gradesHandled.release();
+//    }
+//    public void waitUntilDone(){
+//        try {
+//            gradesHandled.acquire();
+//        } catch (InterruptedException ex) {
+////            Logger.getLogger(Grades.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 }
 
    
