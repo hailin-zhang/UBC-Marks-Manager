@@ -71,7 +71,7 @@ public class Grades {
         for(int i = 0; i < elements.length; i++){
             //CASE 1: class mark currently unavailable
             if(elements[i+5].equals(degree)){
-                currentClass = new Course(elements[i], elements[i+1], elements[i+2]);
+                currentClass = new Course(elements[i], elements[i+1], elements[i+2], 0);
                 currentCourses.add(currentClass);   
                 currentGrade = new Grade (0, 0); //DEFAULT: 0% with 0 
                 courseInfo.put(currentClass, currentGrade);
@@ -79,7 +79,7 @@ public class Grades {
             }
             //CASE 2: class mark is available
             else{
-                currentClass = new Course(elements[i], elements[i+1], elements[i+2]);
+                currentClass = new Course(elements[i], elements[i+1], elements[i+2], Double.parseDouble(elements[i+10]));
                 currentGrade = new Grade (Double.parseDouble(elements[i+9]),Double.parseDouble(elements[i+3]));
                 courseInfo.put(currentClass, currentGrade);
                 i+= 10; //NOTE: 1 less than actual because of i++

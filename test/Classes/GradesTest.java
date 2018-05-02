@@ -38,7 +38,13 @@ public class GradesTest {
     @Test
     public void testCumulativeAverage(){
         testCourse.parseCoursesAndGrades();
-        assertTrue((double)((86*4+84*4+4*(50*3))/(4*3+4+4)) == testCourse.getCumulativeAverage());
+        assertTrue((double)((86*4+84*4)/(4+4)) == testCourse.getCumulativeAverage());
+        for(Object course : testCourse.getCourses().keySet()){
+            if(((Course)course).getCourseNumber().equals("221")){
+                assertTrue(((Double)((Course)course).getSectionAverage()).equals(78.0));
+            }
+        }
+
     }
     
      @Test
