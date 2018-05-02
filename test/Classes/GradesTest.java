@@ -5,6 +5,7 @@
  */
 package Classes;
 
+import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -43,7 +44,17 @@ public class GradesTest {
      @Test
     public void testGetCurrent(){
         testCourse.parseCoursesAndGrades();
-        testCourse.getCurrent();
+        ArrayList<Course> testCurrent = testCourse.getCurrent();
+        Course test1 = testCurrent.get(0);
+        Course test2 = testCurrent.get(1);
+        Course test3 = testCurrent.get(2);
+        Course test4 = testCurrent.get(3);
+        assertTrue(4 == testCurrent.size());
+        assertTrue(test1.getCourseName().equals("CPSC"));
+        assertTrue(test2.getCourseName().equals("CPSC"));
+        assertTrue(test3.getCourseName().equals("CPSC"));
+        assertTrue(test4.getCourseName().equals("CPSC"));
+        
     }
 
 //    /**

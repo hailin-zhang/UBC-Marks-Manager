@@ -73,7 +73,7 @@ public class Grades {
             if(elements[i+5].equals(degree)){
                 currentClass = new Course(elements[i], elements[i+1], elements[i+2]);
                 currentCourses.add(currentClass);   
-                currentGrade = new Grade (3, 50); //DEFAULT: 50% with 3 credits.
+                currentGrade = new Grade (0, 0); //DEFAULT: 0% with 0 
                 courseInfo.put(currentClass, currentGrade);
                 i += 7; //NOTE: 1 less than actual because of i++
             }

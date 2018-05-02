@@ -48,6 +48,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         submitRawText = new javax.swing.JButton();
+        getMarksButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         courseWithoutGradeSelect = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
@@ -55,7 +56,6 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         sliderBox = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         showPercent = new javax.swing.JTextArea();
-        getMarksButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         submitGrade = new javax.swing.JButton();
         selectCredits = new javax.swing.JComboBox<>();
@@ -130,30 +130,36 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
             }
         });
 
+        getMarksButton.setText("Calculate My Marks!");
+        getMarksButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getMarksButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Degree, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(125, 125, 125)
                 .addComponent(jLabel2)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(submitRawText, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pasteMarksArea, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(314, 314, 314))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pasteMarksArea, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(getMarksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(submitRawText, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,10 +178,18 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(submitRawText)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(getMarksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Your cumulative average:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+
+        courseWithoutGradeSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                courseWithoutGradeSelectActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Current course (with no grade on SSC):");
 
@@ -195,19 +209,12 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
 
         showPercent.setEditable(false);
         showPercent.setColumns(1);
-        showPercent.setFont(showPercent.getFont().deriveFont(showPercent.getFont().getStyle() | java.awt.Font.BOLD, showPercent.getFont().getSize()+25));
+        showPercent.setFont(showPercent.getFont().deriveFont(showPercent.getFont().getStyle() | java.awt.Font.BOLD, showPercent.getFont().getSize()+18));
         showPercent.setRows(1);
         showPercent.setText("0.00%");
         showPercent.setToolTipText("");
         showPercent.setAutoscrolls(false);
         jScrollPane1.setViewportView(showPercent);
-
-        getMarksButton.setText("Calculate My Marks!");
-        getMarksButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                getMarksButtonActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Projected Grade from 0% to 100%:");
 
@@ -228,69 +235,60 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(12, 12, 12)
-                            .addComponent(jLabel4))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(getMarksButton, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
-                            .addGap(76, 76, 76))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel4)
+                        .addGap(746, 746, 746))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(courseWithoutGradeSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(selectCredits, 0, 270, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(sliderBox, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(submitGrade)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(submitGrade))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sliderBox, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(210, 210, 210))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(courseWithoutGradeSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(243, 243, 243)
+                                .addComponent(selectCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(sliderBox, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(submitGrade)
-                            .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(selectCredits)
-                            .addComponent(courseWithoutGradeSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addComponent(getMarksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
-                .addGap(73, 73, 73))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(courseWithoutGradeSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(selectCredits))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sliderBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(submitGrade))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,6 +306,21 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         updateValues();
     }//GEN-LAST:event_sliderStateChanged
 
+    
+    //CALLED only when all current courses known
+    private void submitGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitGradeActionPerformed
+        // TODO add your handling code here:
+        Grades instance = Grades.getInstance();
+        for(Course course : instance.getCurrent()){
+            if((course.getCourseName() + " " + course.getCourseNumber() + " section " + course.getSection()).equals(courseWithoutGradeSelect.getSelectedItem().toString())){
+                Grade currentGrade = new Grade((double) Integer.parseInt(selectCredits.getSelectedItem().toString()), (double) Integer.parseInt(sliderBox.getText()));
+                instance.putCourse(course, currentGrade);
+            }
+        }
+        double avg = instance.getCumulativeAverage();
+        showPercent.setText(Math.round(avg*100.0)/100.0+"%"+ "\nAs 4.0 GPA: " + Math.round(((avg/20)-1)*100.0)/100.0 + "\nAs 4.33 GPA: " + convertFourPointThreeThreeGPA(avg));
+    }//GEN-LAST:event_submitGradeActionPerformed
+
     private void submitRawTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitRawTextActionPerformed
         // TODO add your handling code here:
         Grades instance = Grades.getInstance();
@@ -323,24 +336,16 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         courseWithoutGradeSelect.setModel(mod);
     }//GEN-LAST:event_submitRawTextActionPerformed
 
-    
-    //CALLED only when all current courses known
-    private void submitGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitGradeActionPerformed
-        // TODO add your handling code here:
-        Grades instance = Grades.getInstance();
-        for(Course course : instance.getCurrent()){
-            if((course.getCourseName() + " " + course.getCourseNumber() + " section " + course.getSection()).equals(courseWithoutGradeSelect.getSelectedItem().toString())){
-                Grade currentGrade = new Grade((double) Integer.parseInt(selectCredits.getSelectedItem().toString()), (double) Integer.parseInt(sliderBox.getText()));
-                instance.putCourse(course, currentGrade);
-            }
-        }
-    }//GEN-LAST:event_submitGradeActionPerformed
-
     private void getMarksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getMarksButtonActionPerformed
         // TODO add your handling code here:
         Grades instance = Grades.getInstance();
-        showPercent.setText(instance.getCumulativeAverage()+"%");
+        double avg = instance.getCumulativeAverage();
+        showPercent.setText(Math.round(avg*100.0)/100.0+"%"+ "\nAs 4.0 GPA: " + Math.round(((avg/20)-1)*100.0)/100.0 + "\nAs 4.33 GPA: " + convertFourPointThreeThreeGPA(avg));
     }//GEN-LAST:event_getMarksButtonActionPerformed
+
+    private void courseWithoutGradeSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseWithoutGradeSelectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_courseWithoutGradeSelectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,5 +413,96 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
 
     private void updateValues() {
         sliderBox.setText(slider.getValue()+"");
+    }
+
+    private double convertFourPointThreeThreeGPA(double avg) {
+        int avgInt = (int) Math.round(avg);
+        if(avg >= 90.0)
+            return 4.33;
+        else if(avg <= 50.0)
+            return 1.00;
+        else{
+        switch(avgInt){
+            case 89:
+                return 4.30;
+            case 88:
+                return 4.20;
+            case 87: 
+                return 4.10;
+            case 86:
+                return 4.00;
+            case 85:
+                return 3.95;
+            case 84: 
+                return 3.90;
+            case 83:
+                return 3.85;
+            case 82:
+                return 3.80;
+            case 81: 
+                return 3.75;
+            case 80:
+                return 3.70;
+            case 79:
+                return 3.60;
+            case 78: 
+                return 3.50;
+            case 77:
+                return 3.40;
+            case 76:
+                return 3.30;
+            case 75: 
+                return 3.20;
+            case 74:
+                return 3.10;
+            case 73:
+                return 3.00;
+            case 72: 
+                return 2.95;
+            case 71:
+                return 2.90;
+            case 70:
+                return 2.80;
+            case 69: 
+                return 2.70;
+            case 68:
+                return 2.65;
+            case 67:
+                return 2.60;
+            case 66: 
+                return 2.55;
+            case 65: 
+                return 2.50;
+            case 64:
+                return 2.40;
+            case 63:
+                return 2.30;
+            case 62: 
+                return 2.20;
+            case 61:
+                return 2.10;
+            case 60:
+                return 2.00;
+            case 59: 
+                return 1.90;
+            case 58:
+                return 1.80;
+            case 57:
+                return 1.70;
+            case 56: 
+                return 1.60;
+            case 55:
+                return 1.50;
+            case 54:
+                return 1.40;
+            case 53: 
+                return 1.30;
+            case 52:
+                return 1.20;
+            case 51:
+                return 1.10;
+            }
+        }
+        return 0;
     }
 }
