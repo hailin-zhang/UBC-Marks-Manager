@@ -43,6 +43,18 @@ public class Grades {
     public void putCourse(Course course, Grade grade){
         courseInfo.put(course, grade);
     }
+    
+    //removes course from hash map
+    //NOTE: course will not have section or credits; empty fields
+    public void removeCourse(Course course){
+        for(Object known : courseInfo.keySet()){
+            if(((Course) known).getCourseName().equals(course.getCourseName())
+                    && ((Course) known).getCourseNumber().equals(course.getCourseNumber())){
+                courseInfo.remove(known);
+                break;
+            }
+        }
+    }
 
     //REQUIRES: currentCourses has already been handled, and its grades/credits have been updated
     //returns the cumulative average of all courses, uses double to preserve decimal accuracy
@@ -64,7 +76,7 @@ public class Grades {
     //REQUIRES: raw text from constructor
     //parses the raw text and places courses & respective grades in the hash map; course is key, grade is value
     //NOTE that courses with unavailable marks have their grade field of Grade object set to -1
-    public void parseCoursesAndGrades() {
+    public void parseCoursesAndGrades(){
         String[] elements = rawText.split(" "); //splits the text according to spaces.
         Course currentClass;
         Grade currentGrade;

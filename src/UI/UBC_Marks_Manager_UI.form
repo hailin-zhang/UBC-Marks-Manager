@@ -95,8 +95,8 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="copyPastePanel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="averagePanel" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -106,16 +106,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="copyPastePanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" max="32767" attributes="0"/>
+              <Component id="averagePanel" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="copyPastePanel">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -132,53 +132,56 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Degree" min="-2" pref="101" max="-2" attributes="0"/>
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel7" min="-2" pref="284" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="pasteMarksArea" min="-2" pref="431" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="submitRawText" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Component id="jLabel3" min="-2" pref="333" max="-2" attributes="0"/>
+                      <Component id="degreeSelectComboBox" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="degreeSelectLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="56" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="pasteGradeLabel" min="-2" pref="284" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="pasteMarksArea" min="-2" pref="431" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="submitRawText" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="0" pref="159" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="instructionsLabelHTML" min="-2" pref="333" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="addCoursePanel" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                  <Component id="pasteGradeLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="degreeSelectLabel" min="-2" pref="22" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="Degree" min="-2" max="-2" attributes="0"/>
+                                  <Component id="degreeSelectComboBox" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel3" max="32767" attributes="0"/>
+                          <Component id="instructionsLabelHTML" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="pasteMarksArea" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
                               <Component id="submitRawText" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="addCoursePanel" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -186,7 +189,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JComboBox" name="Degree">
+        <Component class="javax.swing.JComboBox" name="degreeSelectComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="7">
@@ -204,7 +207,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="degreeSelectLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="First, select your degree program:"/>
           </Properties>
@@ -218,13 +221,13 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="instructionsLabelHTML">
           <Properties>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Then, copy-paste the box from &quot;Your Grades Summary&quot; on the UBC SSC into the text box on the right, following these instructions: &lt;br&gt; &lt;br&gt;&lt;em&gt;&lt;u&gt; IMPORTANT INSTRUCTIONS: &lt;/u&gt;&lt;/em&gt; &lt;br&gt;&lt;br&gt;1) ONLY copy after the &quot;Course&quot; &quot;Section&quot;  ... parts! &lt;br&gt;DO NOT include them! &lt;br&gt;&lt;br&gt; 2) Paste the copied box into your browser&apos;s search bar first, then copy again before pasting here!  "/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="pasteGradeLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;em&gt; Read instructions first! &lt;/em&gt; Paste your grades here!&lt;/html&gt; "/>
           </Properties>
@@ -237,9 +240,131 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitRawTextActionPerformed"/>
           </Events>
         </Component>
+        <Container class="javax.swing.JPanel" name="addCoursePanel">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Add a course:"/>
+              </Border>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="addCodeLabel" pref="95" max="32767" attributes="0"/>
+                          <Component id="addCode" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="addNumberLabel" max="32767" attributes="0"/>
+                          <Component id="addNumber" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="addCourseButton" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="removeCourseButton" min="-2" pref="120" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="addGrade" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Component id="addGradeLabel" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="addCreditLabel" min="-2" pref="76" max="-2" attributes="0"/>
+                                  <Component id="addCredits" min="-2" pref="92" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="addNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="addCodeLabel" alignment="3" max="32767" attributes="0"/>
+                          <Component id="addGradeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="addCreditLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="addNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="addGrade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="addCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="addCredits" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="addCourseButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="removeCourseButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JTextField" name="addNumber">
+            </Component>
+            <Component class="javax.swing.JLabel" name="addGradeLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Grade:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="addCode">
+            </Component>
+            <Component class="javax.swing.JLabel" name="addCodeLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Course Code:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="addCourseButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add Course"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addCourseButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="addGrade">
+            </Component>
+            <Component class="javax.swing.JLabel" name="addNumberLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Course Number:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="addCredits">
+            </Component>
+            <Component class="javax.swing.JLabel" name="addCreditLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Credits:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="removeCourseButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Remove Course"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeCourseButtonActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="averagePanel">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -254,31 +379,41 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" alignment="0" min="-2" pref="425" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel5" min="-2" pref="225" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="sliderBox" min="-2" pref="90" max="-2" attributes="0"/>
-                              <Component id="slider" min="-2" pref="290" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="currentCourseLabel" min="-2" pref="225" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="numCreditsLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="sliderBox" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Component id="gradeSlider" min="-2" pref="290" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="submitGrade" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="projectedGradeLabel" alignment="0" min="-2" pref="258" max="-2" attributes="0"/>
+                              <Component id="courseWithoutGradeSelect" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
+                                  <Component id="selectCredits" min="-2" pref="182" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="submitGrade" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel6" alignment="0" min="-2" pref="258" max="-2" attributes="0"/>
-                      <Component id="courseWithoutGradeSelect" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
-                          <Component id="selectCredits" min="-2" pref="182" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="calculateAll" min="-2" pref="200" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="selectedButton" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ScrollPane" max="32767" attributes="0"/>
+                  <Component id="ScrollPane" pref="604" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -287,10 +422,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="ScrollPane" pref="448" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel5" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="currentCourseLabel" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="numCreditsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -299,17 +435,20 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel6" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="projectedGradeLabel" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="sliderBox" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="submitGrade" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="slider" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="gradeSlider" min="-2" pref="57" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="136" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="calculateAll" max="32767" attributes="0"/>
+                              <Component id="selectedButton" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Component id="ScrollPane" pref="434" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -327,12 +466,12 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="currentCourseLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Current course (with no grade on SSC):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSlider" name="slider">
+        <Component class="javax.swing.JSlider" name="gradeSlider">
           <Properties>
             <Property name="minorTickSpacing" type="int" value="1"/>
             <Property name="paintLabels" type="boolean" value="true"/>
@@ -341,7 +480,7 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="sliderStateChanged"/>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="gradeSliderStateChanged"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="sliderBox">
@@ -376,7 +515,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="projectedGradeLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Projected Grade from 0% to 100%:"/>
           </Properties>
@@ -409,7 +548,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="numCreditsLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Number of Credits:"/>
           </Properties>
@@ -429,15 +568,21 @@
                   <Properties>
                     <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="0">
+                      <Table columnCount="5" rowCount="0">
                         <Column editable="false" title="Course" type="java.lang.String"/>
                         <Column editable="false" title="Grade" type="java.lang.String"/>
+                        <Column editable="false" title="Credits" type="java.lang.String"/>
                         <Column editable="false" title="Section Average" type="java.lang.String"/>
                         <Column editable="false" title="Section Difference" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -469,6 +614,22 @@
             </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="selectedButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Calculate Selected Grades!"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectedButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="calculateAll">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Calculate All Grades!"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calculateAllActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

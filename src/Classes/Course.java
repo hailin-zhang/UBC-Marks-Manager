@@ -1,10 +1,41 @@
 package Classes;
 
+import java.util.Objects;
+
 public class Course {
     private String courseName;
     private String courseNumber;
     private String section;
     private double sectionAverage;
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.courseName);
+        hash = 59 * hash + Objects.hashCode(this.courseNumber);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Course other = (Course) obj;
+        if (!Objects.equals(this.courseName, other.courseName)) {
+            return false;
+        }
+        if (!Objects.equals(this.courseNumber, other.courseNumber)) {
+            return false;
+        }
+        return true;
+    }
 
     public Course(String name, String number, String section, double avg){
         courseName = name;
