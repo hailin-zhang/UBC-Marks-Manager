@@ -29,6 +29,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         initComponents();
         updateValues();
         initTextHints();
+        this.setTitle("UBC Marks Manager V1.13 - Hai Lin Zhang 2018"); // that is the code you looking for
     }
 
     /**
