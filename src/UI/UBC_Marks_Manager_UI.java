@@ -145,7 +145,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         instructionsLabelHTML.setText("<html>Then, copy-paste the box from \"Your Grades Summary\" on the UBC SSC into the text box on the right, starting from the topmost course, following these instructions: <br> <br><em><u> IMPORTANT INSTRUCTIONS: </u></em> <br><br>1) ONLY copy after the \"Course\" \"Section\"  ... parts! <br>DO NOT include them! <br><br> 2) Paste the copied data into your browser's search bar first, then copy again before pasting here!  ");
         instructionsLabelHTML.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        pasteGradeLabel.setText("<html> <em> Read instructions first! </em> Paste your grades here!</html> ");
+        pasteGradeLabel.setText("<html> <em> Read instructions first! </em> Then, paste your grades here!</html> ");
 
         submitRawText.setText("Import Grades");
         submitRawText.addActionListener(new java.awt.event.ActionListener() {
@@ -292,16 +292,15 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(copyPastePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(copyPastePanelLayout.createSequentialGroup()
-                        .addGroup(copyPastePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pasteGradeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(copyPastePanelLayout.createSequentialGroup()
-                                .addComponent(pasteMarksArea, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(submitRawText, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 285, Short.MAX_VALUE))
-                    .addGroup(copyPastePanelLayout.createSequentialGroup()
                         .addComponent(addCoursePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(14, 14, 14))))
+                        .addGap(14, 14, 14))
+                    .addGroup(copyPastePanelLayout.createSequentialGroup()
+                        .addGroup(copyPastePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(pasteGradeLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pasteMarksArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(submitRawText, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 285, Short.MAX_VALUE))))
         );
         copyPastePanelLayout.setVerticalGroup(
             copyPastePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,7 +345,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
 
         showPercent.setEditable(false);
         showPercent.setColumns(1);
-        showPercent.setFont(showPercent.getFont().deriveFont(showPercent.getFont().getStyle() | java.awt.Font.BOLD, showPercent.getFont().getSize()+18));
+        showPercent.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 28)); // NOI18N
         showPercent.setRows(1);
         showPercent.setText("0.00%");
         showPercent.setToolTipText("");
@@ -409,7 +408,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel3.setText("<html><i>- The combo box above shows courses on the SSC with no grades. You may update the number of credits of each course, and then select the grade you wish to receive in the course using the slider. Clicking \"Update Mark\" will show your new mark for the selected course in the table, and update your average in the text box below.<br> - To select a course in the table, hold CTRL and click on selected courses. <br> - You can calculate your average with only the selected marks by clicking \"Calculate Selected Grades!\" and re-calculate all grades using the \"Calculate All Grades!\" button. </i></html>");
+        jLabel3.setText("<html><i>- The combo box above shows courses on the SSC with no grades. You may update the number of credits of each course, and then select the grade you wish to receive using the slider. Clicking \"Update Mark\" will show your new mark for the selected course in the table, and update your average in the text box above.<br> - To select a course in the table, hold CTRL and click on selected courses. <br> - You can calculate your average with only the selected courses by clicking \"Calculate Selected Grades!\" and re-calculate all grades using the \"Calculate All Grades!\" button. <br> - You can sort the table by column by clicking on the headers. </i></html>");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout averagePanelLayout = new javax.swing.GroupLayout(averagePanel);
@@ -450,8 +449,8 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
                 .addContainerGap())
         );
         averagePanelLayout.setVerticalGroup(
-            averagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ScrollPane)
+            averagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(ScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
             .addGroup(averagePanelLayout.createSequentialGroup()
                 .addGroup(averagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(currentCourseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -471,10 +470,10 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(averagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(calculateAll, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                    .addComponent(calculateAll, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                     .addComponent(selectedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
