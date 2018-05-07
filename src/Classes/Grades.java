@@ -2,6 +2,7 @@ package Classes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
 
 public class Grades {
     private static Grades instance = new Grades();
@@ -76,25 +77,38 @@ public class Grades {
     //REQUIRES: raw text from constructor
     //parses the raw text and places courses & respective grades in the hash map; course is key, grade is value
     //NOTE that courses with unavailable marks have their grade field of Grade object set to -1
-    public void parseCoursesAndGrades(){
-        String[] elements = rawText.split(" "); //splits the text according to spaces.
+    public void parseCoursesAndGrades(){    
+        String fixedText =  rawText.replaceAll("\\s+", " ");
+        System.out.println("fixed: "+fixedText);
+        String[] elements = fixedText.split(" "); //splits the text according to formatting
+        for(int i = 0; i < elements.length; i++){
+            System.out.println(elements[i]);
+        }
         Course currentClass;
         Grade currentGrade;
-        for(int i = 0; i < elements.length; i++){
-            //CASE 1: class mark currently unavailable
-            if(elements[i+5].equals(degree)){
+        for(int i = 0; i < elements.length; i++){      
+            //CASE 1: class mark currently available
+            if(elements[i+7].equals(degree)){
+                currentClass = new Course(elements[i], elements[i+1], elements[i+2], Double.parseDouble(elements[i+10]));
+                currentGrade = new Grade (Double.parseDouble(elements[i+9]),Double.parseDouble(elements[i+3]));
+                courseInfo.put(currentClass, currentGrade);
+                i+= 10; //NOTE: 1 less than actual because of i++
+            }
+            //CASE 2: class mark is unavailable and there is a term value
+            else if(elements[i+5].equals(degree)){
                 currentClass = new Course(elements[i], elements[i+1], elements[i+2], 0);
                 currentCourses.add(currentClass);   
                 currentGrade = new Grade (0, 0); //DEFAULT: 0% with 0 
                 courseInfo.put(currentClass, currentGrade);
                 i += 7; //NOTE: 1 less than actual because of i++
             }
-            //CASE 2: class mark is available
-            else{
-                currentClass = new Course(elements[i], elements[i+1], elements[i+2], Double.parseDouble(elements[i+10]));
-                currentGrade = new Grade (Double.parseDouble(elements[i+9]),Double.parseDouble(elements[i+3]));
+            //CASE 3: class mark is unavailable but there is no term value
+            else if(elements[i+4].equals(degree)){
+                currentClass = new Course(elements[i], elements[i+1], elements[i+2], 0);
+                currentCourses.add(currentClass);   
+                currentGrade = new Grade (0, 0); //DEFAULT: 0% with 0 
                 courseInfo.put(currentClass, currentGrade);
-                i+= 10; //NOTE: 1 less than actual because of i++
+                i += 6; //NOTE: 1 less than actual because of i++
             }
         }
     }

@@ -44,7 +44,6 @@ public class GradesTest {
                 assertTrue(((Double)((Course)course).getSectionAverage()).equals(78.0));
             }
         }
-
     }
     
      @Test
@@ -60,7 +59,6 @@ public class GradesTest {
         assertTrue(test2.getCourseName().equals("CPSC"));
         assertTrue(test3.getCourseName().equals("CPSC"));
         assertTrue(test4.getCourseName().equals("CPSC"));
-        
     }
 
 //    /**

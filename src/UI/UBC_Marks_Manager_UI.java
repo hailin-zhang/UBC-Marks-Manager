@@ -142,7 +142,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
 
         pasteMarksArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        instructionsLabelHTML.setText("<html>Then, copy-paste the box from \"Your Grades Summary\" on the UBC SSC into the text box on the right, starting from the topmost course, following these instructions: <br> <br><em><u> IMPORTANT INSTRUCTIONS: </u></em> <br><br>1) ONLY copy after the \"Course\" \"Section\"  ... parts! <br>DO NOT include them! <br><br> 2) Paste the copied data into your browser's search bar first, then copy again before pasting here!  ");
+        instructionsLabelHTML.setText("<html>Then, copy-paste the box from \"Your Grades Summary\" on the UBC SSC into the text box on the right, starting from the topmost course, following these instructions: <br> <br><em><u> IMPORTANT INSTRUCTIONS: </u></em> <br> - Copy all the courses starting AFTER the \"Course\" \"Section\" \"Grade\" ... headers! DON'T include them! <br> <br> - This project is still in development! If you see any weird stuff happening or have any suggestions, please let me know!");
         instructionsLabelHTML.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         pasteGradeLabel.setText("<html> <em> Read instructions first! </em> Then, paste your grades here!</html> ");
@@ -161,9 +161,6 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 addNumberFocusGained(evt);
             }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addNumberFocusLost(evt);
-            }
         });
 
         addGradeLabel.setText("Grade:");
@@ -172,9 +169,6 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         addCode.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 addCodeFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addCodeFocusLost(evt);
             }
         });
 
@@ -192,9 +186,6 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 addGradeFocusGained(evt);
             }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addGradeFocusLost(evt);
-            }
         });
 
         addNumberLabel.setText("Course Number:");
@@ -203,9 +194,6 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         addCredits.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 addCreditsFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addCreditsFocusLost(evt);
             }
         });
 
@@ -313,7 +301,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
                     .addGroup(copyPastePanelLayout.createSequentialGroup()
                         .addComponent(degreeSelectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(instructionsLabelHTML)
+                        .addComponent(instructionsLabelHTML, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addContainerGap())
@@ -408,7 +396,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel3.setText("<html><i>- The combo box above shows courses on the SSC with no grades. You may update the number of credits of each course, and then select the grade you wish to receive using the slider. Clicking \"Update Mark\" will show your new mark for the selected course in the table, and update your average in the text box above.<br> - To select a course in the table, hold CTRL and click on selected courses. <br> - You can calculate your average with only the selected courses by clicking \"Calculate Selected Grades!\" and re-calculate all grades using the \"Calculate All Grades!\" button. <br> - You can sort the table by column by clicking on the headers. </i></html>");
+        jLabel3.setText("<html><i>- The combo box above shows courses on the SSC with no grades. You may update the number of credits of each course, and then select the grade you wish to receive using the slider. Clicking \"Update Mark\" will show your new mark for the selected course in the table, and update your average in the text box above.<br> - To select courses in the table, hold CTRL and click on selected courses. <br> - You can calculate your average with only the selected courses by clicking \"Calculate Selected Grades!\" and re-calculate all grades using the \"Calculate All Grades!\" button. <br> - You can sort the table by column by clicking on the headers. </i></html>");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout averagePanelLayout = new javax.swing.GroupLayout(averagePanel);
@@ -553,7 +541,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
             updateTable(instance);
          }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Input in wrong format! Did you copy-paste into the search bar first?");
+            JOptionPane.showMessageDialog(null, "Input in wrong format! Did you select the right degree program?");
         }
     }//GEN-LAST:event_submitRawTextActionPerformed
 
@@ -568,7 +556,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
             updateAverage(instance);
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Malformed input!");
+            JOptionPane.showMessageDialog(null, "Malformed input! " + e.getMessage());
         }
        
         
@@ -625,11 +613,6 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         updateAverage(instance);
     }//GEN-LAST:event_calculateAllActionPerformed
 
-    private void addCodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addCodeFocusLost
-        // TODO add your handling code here:
-        addCode.setText("BIOL");
-    }//GEN-LAST:event_addCodeFocusLost
-
     private void addCodeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addCodeFocusGained
         // TODO add your handling code here:
         addCode.setText("");
@@ -640,31 +623,16 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
          addNumber.setText("");
     }//GEN-LAST:event_addNumberFocusGained
 
-    private void addNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addNumberFocusLost
-        // TODO add your handling code here:
-        addNumber.setText("112");
-    }//GEN-LAST:event_addNumberFocusLost
-
     private void addGradeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addGradeFocusGained
         // TODO add your handling code here:
         
         addGrade.setText("");
     }//GEN-LAST:event_addGradeFocusGained
 
-    private void addGradeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addGradeFocusLost
-        // TODO add your handling code here:
-        addGrade.setText("100");
-    }//GEN-LAST:event_addGradeFocusLost
-
     private void addCreditsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addCreditsFocusGained
         // TODO add your handling code here:
         addCredits.setText("");
     }//GEN-LAST:event_addCreditsFocusGained
-
-    private void addCreditsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addCreditsFocusLost
-        // TODO add your handling code here:
-        addCredits.setText("3");
-    }//GEN-LAST:event_addCreditsFocusLost
 
     /**
      * @param args the command line arguments
@@ -859,7 +827,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
             double difference = (twoDecimal(currentGrade) - ((Course) course).getSectionAverage());
             model.addRow( new String[] {currentCourse, twoDecimal(currentGrade) + "", 
                 ((Grade) courseInfo.get(course)).getCredits() + " ", ((Course) course).getSectionAverage() + "", 
-                (difference >= 0 ? "+" : "-") + difference  + "" });
+                ((Course) course).getSectionAverage() == 0 ? "+" + 0 : ((difference >= 0 ? "+" : "-") + difference  + "" )});
         }
     }
 

@@ -173,7 +173,7 @@
                       <Group type="102" attributes="0">
                           <Component id="degreeSelectComboBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="instructionsLabelHTML" max="32767" attributes="0"/>
+                          <Component id="instructionsLabelHTML" pref="0" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -226,7 +226,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="instructionsLabelHTML">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Then, copy-paste the box from &quot;Your Grades Summary&quot; on the UBC SSC into the text box on the right, starting from the topmost course, following these instructions: &lt;br&gt; &lt;br&gt;&lt;em&gt;&lt;u&gt; IMPORTANT INSTRUCTIONS: &lt;/u&gt;&lt;/em&gt; &lt;br&gt;&lt;br&gt;1) ONLY copy after the &quot;Course&quot; &quot;Section&quot;  ... parts! &lt;br&gt;DO NOT include them! &lt;br&gt;&lt;br&gt; 2) Paste the copied data into your browser&apos;s search bar first, then copy again before pasting here!  "/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;Then, copy-paste the box from &quot;Your Grades Summary&quot; on the UBC SSC into the text box on the right, starting from the topmost course, following these instructions: &lt;br&gt; &lt;br&gt;&lt;em&gt;&lt;u&gt; IMPORTANT INSTRUCTIONS: &lt;/u&gt;&lt;/em&gt; &lt;br&gt; - Copy all the courses starting AFTER the &quot;Course&quot; &quot;Section&quot; &quot;Grade&quot; ... headers! DON&apos;T include them! &lt;br&gt; &lt;br&gt; - This project is still in development! If you see any weird stuff happening or have any suggestions, please let me know!"/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
@@ -326,7 +326,6 @@
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addNumberFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addNumberFocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="addGradeLabel">
@@ -342,7 +341,6 @@
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addCodeFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addCodeFocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="addCodeLabel">
@@ -366,7 +364,6 @@
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addGradeFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addGradeFocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="addNumberLabel">
@@ -382,7 +379,6 @@
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addCreditsFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addCreditsFocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="addCreditLabel">
@@ -681,7 +677,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="10" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;i&gt;- The combo box above shows courses on the SSC with no grades. You may update the number of credits of each course, and then select the grade you wish to receive using the slider. Clicking &quot;Update Mark&quot; will show your new mark for the selected course in the table, and update your average in the text box above.&lt;br&gt; - To select a course in the table, hold CTRL and click on selected courses. &lt;br&gt; - You can calculate your average with only the selected courses by clicking &quot;Calculate Selected Grades!&quot; and re-calculate all grades using the &quot;Calculate All Grades!&quot; button. &lt;br&gt; - You can sort the table by column by clicking on the headers. &lt;/i&gt;&lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;i&gt;- The combo box above shows courses on the SSC with no grades. You may update the number of credits of each course, and then select the grade you wish to receive using the slider. Clicking &quot;Update Mark&quot; will show your new mark for the selected course in the table, and update your average in the text box above.&lt;br&gt; - To select courses in the table, hold CTRL and click on selected courses. &lt;br&gt; - You can calculate your average with only the selected courses by clicking &quot;Calculate Selected Grades!&quot; and re-calculate all grades using the &quot;Calculate All Grades!&quot; button. &lt;br&gt; - You can sort the table by column by clicking on the headers. &lt;/i&gt;&lt;/html&gt;"/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
