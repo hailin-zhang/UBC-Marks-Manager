@@ -16,6 +16,8 @@ public class Course {
         return hash;
     }
 
+    //IMPORTANT: overrided equals; courses are the asme curse if they have same name and number (i.e. CPSC 221 section 1 
+    // == CPSC 221 section 2)
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

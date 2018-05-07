@@ -76,7 +76,7 @@ public class Grades {
 
     //REQUIRES: raw text from constructor
     //parses the raw text and places courses & respective grades in the hash map; course is key, grade is value
-    //NOTE that courses with unavailable marks have their grade field of Grade object set to -1
+    //NOTE that courses with unavailable marks have their grades and credits in Grade object set to 0
     public void parseCoursesAndGrades(){    
         String fixedText =  rawText.replaceAll("\\s+", " ");
         String[] elements = fixedText.split(" "); //splits the text according to formatting

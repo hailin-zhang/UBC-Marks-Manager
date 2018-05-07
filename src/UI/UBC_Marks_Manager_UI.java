@@ -556,7 +556,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
             updateAverage(instance);
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Malformed input! " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Malformed input! ");
         }
        
         
