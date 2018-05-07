@@ -29,7 +29,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         initComponents();
         updateValues();
         initTextHints();
-        this.setTitle("UBC Marks Manager V1.13 - Hai Lin Zhang 2018"); // that is the code you looking for
+        this.setTitle("UBC Marks Manager V1.2 - Hai Lin Zhang 2018"); 
     }
 
     /**
@@ -719,6 +719,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         sliderBox.setText(gradeSlider.getValue()+"");
     }
 
+    //pls dont judge me I couldnt find a formula so I copy-pasted the UBC webpage hahaha
     private double convertFourPointThreeThreeGPA(double avg) {
         int avgInt = (int) Math.round(avg);
         if(avg >= 90.0)

@@ -79,11 +79,7 @@ public class Grades {
     //NOTE that courses with unavailable marks have their grade field of Grade object set to -1
     public void parseCoursesAndGrades(){    
         String fixedText =  rawText.replaceAll("\\s+", " ");
-        System.out.println("fixed: "+fixedText);
         String[] elements = fixedText.split(" "); //splits the text according to formatting
-        for(int i = 0; i < elements.length; i++){
-            System.out.println(elements[i]);
-        }
         Course currentClass;
         Grade currentGrade;
         for(int i = 0; i < elements.length; i++){      
