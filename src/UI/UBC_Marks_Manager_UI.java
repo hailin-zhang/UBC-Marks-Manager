@@ -84,6 +84,13 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         selectedButton = new javax.swing.JButton();
         calculateAll = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        sessionComboBox = new javax.swing.JComboBox<>();
+        termSelectLabel = new javax.swing.JLabel();
+        sessionOnSelect = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        selectedGradeSlider = new javax.swing.JSlider();
+        changeSelectedGradeBox = new javax.swing.JTextField();
+        changeGradesButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -217,7 +224,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
             .addGroup(addCoursePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(addCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 828, Short.MAX_VALUE)
                     .addGroup(addCoursePanelLayout.createSequentialGroup()
                         .addGroup(addCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(addCodeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
@@ -276,19 +283,18 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
                             .addComponent(degreeSelectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(instructionsLabelHTML, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(34, 34, 34)
                 .addGroup(copyPastePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(copyPastePanelLayout.createSequentialGroup()
-                        .addComponent(addCoursePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(14, 14, 14))
-                    .addGroup(copyPastePanelLayout.createSequentialGroup()
-                        .addGroup(copyPastePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(pasteGradeLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pasteMarksArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(submitRawText, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 285, Short.MAX_VALUE))))
+                        .addComponent(jLabel2)
+                        .addGap(34, 34, 34)
+                        .addGroup(copyPastePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pasteGradeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addCoursePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, copyPastePanelLayout.createSequentialGroup()
+                        .addComponent(pasteMarksArea, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(submitRawText, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         copyPastePanelLayout.setVerticalGroup(
             copyPastePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,7 +312,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addContainerGap())
                     .addGroup(copyPastePanelLayout.createSequentialGroup()
-                        .addGroup(copyPastePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(copyPastePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(pasteMarksArea, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(submitRawText))
                         .addGap(18, 18, 18)
@@ -433,7 +439,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
+                .addComponent(ScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 783, Short.MAX_VALUE)
                 .addContainerGap())
         );
         averagePanelLayout.setVerticalGroup(
@@ -464,6 +470,35 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        termSelectLabel.setText("Select a session:");
+
+        sessionOnSelect.setText("Select Session");
+        sessionOnSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sessionOnSelectActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Change selected grade(s):");
+
+        selectedGradeSlider.setMinorTickSpacing(1);
+        selectedGradeSlider.setPaintLabels(true);
+        selectedGradeSlider.setPaintTicks(true);
+        selectedGradeSlider.setSnapToTicks(true);
+        selectedGradeSlider.setToolTipText("");
+        selectedGradeSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                selectedGradeSliderStateChanged(evt);
+            }
+        });
+
+        changeGradesButton.setText("Change Grade(s)");
+        changeGradesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeGradesButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -472,16 +507,54 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(copyPastePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(averagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(averagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sessionComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(termSelectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(selectedGradeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(changeSelectedGradeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sessionOnSelect, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(changeGradesButton, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(copyPastePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(averagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(averagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(termSelectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sessionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sessionOnSelect)
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(selectedGradeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(changeSelectedGradeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(changeGradesButton)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -531,12 +604,23 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
             //show unknown courses
             ArrayList<Course> courses = instance.getCurrent();
             String[] courseNames = new String[courses.size()];
+            //update current course combo box
             for(int i = 0; i < courses.size(); i++){
                 Course curr = courses.get(i);
                 courseNames[i] = curr.getCourseName() + " " + curr.getCourseNumber() + " section " + curr.getSection();
             }
             DefaultComboBoxModel mod = new DefaultComboBoxModel(courseNames);
             courseWithoutGradeSelect.setModel(mod);
+            //update session combo box
+            HashMap sessions = instance.getSessions();
+            String[] sessionNames = new String[sessions.size()];
+            int i = 0;
+            for(Object session : sessions.keySet()){
+                sessionNames[i] = (String) session;
+                i++;
+            }
+            mod = new DefaultComboBoxModel(sessionNames);
+            sessionComboBox.setModel(mod);
             //update table
             updateTable(instance);
          }
@@ -609,7 +693,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
     private void calculateAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateAllActionPerformed
         // TODO add your handling code here:
         Grades instance = Grades.getInstance();
-          updateTable(instance);
+        updateTable(instance);
         updateAverage(instance);
     }//GEN-LAST:event_calculateAllActionPerformed
 
@@ -633,6 +717,46 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
         // TODO add your handling code here:
         addCredits.setText("");
     }//GEN-LAST:event_addCreditsFocusGained
+
+    private void sessionOnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sessionOnSelectActionPerformed
+        // TODO add your handling code here:
+        gradeTable.getSelectionModel().clearSelection();
+        Grades instance = Grades.getInstance();
+        String session = sessionComboBox.getSelectedItem().toString();
+        ArrayList<Course> courses = (ArrayList<Course>) instance.getSessions().get(session);
+        for(Course course : courses){
+            for(int i = 0; i < instance.getCourses().size(); i++){
+                if((course.getCourseName() + " " + course.getCourseNumber() + " " 
+                        + course.getSection()).equals((String)gradeTable.getValueAt(i, 0))){
+                    gradeTable.getSelectionModel().addSelectionInterval(i, i);
+                }
+            }
+        }
+    }//GEN-LAST:event_sessionOnSelectActionPerformed
+
+    private void changeGradesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeGradesButtonActionPerformed
+        // TODO add your handling code here:
+        Grades instance = Grades.getInstance();
+        HashMap courses = instance.getCourses();
+        int[] selectedRows = gradeTable.getSelectedRows();
+            for(int row : selectedRows){
+                for(Object course : courses.keySet()){
+                    Object currCourseName =  gradeTable.getValueAt(row, 0);
+                    if((((Course) course).getCourseName() + " " + ((Course) course).getCourseNumber() + " " 
+                    + ((Course) course).getSection()).equals((String) currCourseName)){
+                        Grade newGrade = new Grade(Double.parseDouble((String)gradeTable.getValueAt(row, 2)),Double.parseDouble(changeSelectedGradeBox.getText()));
+                        courses.put((Course) course, newGrade);
+                    }
+                }
+            }
+            updateTable(instance);  
+            updateAverage(instance);
+    }//GEN-LAST:event_changeGradesButtonActionPerformed
+
+    private void selectedGradeSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_selectedGradeSliderStateChanged
+        // TODO add your handling code here:
+        changeSelectedGradeBox.setText(selectedGradeSlider.getValue()+"");
+    }//GEN-LAST:event_selectedGradeSliderStateChanged
 
     /**
      * @param args the command line arguments
@@ -683,6 +807,8 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
     private javax.swing.JLabel addNumberLabel;
     private javax.swing.JPanel averagePanel;
     private javax.swing.JButton calculateAll;
+    private javax.swing.JButton changeGradesButton;
+    private javax.swing.JTextField changeSelectedGradeBox;
     private javax.swing.JPanel copyPastePanel;
     private javax.swing.JComboBox<String> courseWithoutGradeSelect;
     private javax.swing.JLabel currentCourseLabel;
@@ -695,6 +821,7 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
@@ -709,10 +836,14 @@ public class UBC_Marks_Manager_UI extends javax.swing.JFrame {
     private javax.swing.JButton removeCourseButton;
     private javax.swing.JComboBox<String> selectCredits;
     private javax.swing.JButton selectedButton;
+    private javax.swing.JSlider selectedGradeSlider;
+    private javax.swing.JComboBox<String> sessionComboBox;
+    private javax.swing.JButton sessionOnSelect;
     private javax.swing.JTextArea showPercent;
     private javax.swing.JTextField sliderBox;
     private javax.swing.JButton submitGrade;
     private javax.swing.JButton submitRawText;
+    private javax.swing.JLabel termSelectLabel;
     // End of variables declaration//GEN-END:variables
 
     private void updateValues() {
